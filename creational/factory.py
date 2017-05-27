@@ -10,15 +10,19 @@ class Pizza(object):
     def __init__(self):
         self.name = self.getPizzaName()
 
+    @classmethod
     def prepare(self):
         print('准备...')
 
+    @classmethod
     def bake(self):
         print('烘焙...')
 
+    @classmethod
     def cut(self):
         print('切片...')
 
+    @classmethod
     def box(self):
         print('装盒...')
 
@@ -26,6 +30,7 @@ class Pizza(object):
 class NYStyleCheesePizza(Pizza):
     """ Pizza 子类 """
 
+    @classmethod
     def getPizzaName(self):
         return '纽约风味 cheese 披萨'
 
@@ -33,15 +38,18 @@ class NYStyleCheesePizza(Pizza):
 class ChicagoCheesePizza(Pizza):
     """ Pizza 子类 """
 
+    @classmethod
     def getPizzaName(self):
         return '芝加哥风味 cheese 披萨'
 
+    @classmethod
     def cut(self):
         """ 覆盖父类方法 """
         print('方块切片...')
 
 
 class PizzaStore(object):
+    @classmethod
     def order_pizza(self, pizza_type):
         pizza = self.create_pizza(pizza_type)
 
@@ -54,6 +62,7 @@ class PizzaStore(object):
 
 
 class NYPizzaStore(PizzaStore):
+    @classmethod
     def create_pizza(self, item):
         if item == 'cheese':
             return NYStyleCheesePizza()
@@ -63,6 +72,7 @@ class NYPizzaStore(PizzaStore):
 
 
 class ChicagoPizzaStore(PizzaStore):
+    @classmethod
     def create_pizza(self, item):
         if item == 'cheese':
             return ChicagoCheesePizza()
