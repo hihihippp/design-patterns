@@ -3,41 +3,51 @@
 
 
 class HardWare(object):
+    @classmethod
     def power_on(self):
         print('上电')
 
+    @classmethod
     def bootloader(self):
         print('bootloader 启动')
 
+    @classmethod
     def power_off(self):
         print('断电')
 
 
 class OperatingSystem(object):
+    @classmethod
     def load_kernel(self):
         print('加载内核')
 
+    @classmethod
     def load_image(self):
         print('加载镜像')
 
+    @classmethod
     def exit_os(self):
         print('退出操作系统')
 
 
 class SoftWare(object):
+    @classmethod
     def load_app(self):
         print('加载应用程序')
 
+    @classmethod
     def exit_app(self):
         print('退出应用程序')
 
 
 class Computer(object):
+    @classmethod
     def __init__(self):
         self.hw = HardWare()
         self.os = OperatingSystem()
         self.sw = SoftWare()
 
+    @classmethod
     def boot(self):
         self.hw.power_on()
         self.hw.bootloader()
@@ -45,6 +55,7 @@ class Computer(object):
         self.os.load_image()
         self.sw.load_app()
 
+    @classmethod
     def shut_down(self):
         self.sw.exit_app()
         self.os.exit_os()
